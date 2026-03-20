@@ -1,0 +1,53 @@
+---
+Language: Cpp
+BasedOnStyle: WebKit
+AlignAfterOpenBracket: BlockIndent
+AlignEscapedNewlines: DontAlign
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: WithoutElse
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBraces: Attach
+BreakAfterAttributes: Always
+BreakStringLiterals: false
+ColumnLimit: 80
+IncludeBlocks: Merge
+IncludeCategories:
+  - Regex: '^".*"$'
+    Priority: 1
+  - Regex: "^<std.*>$"
+    Priority: 3
+  - Regex: "^<.*>$"
+    Priority: 2
+KeepEmptyLinesAtTheStartOfBlocks: false
+PointerAlignment: Right
+QualifierAlignment: Left
+SeparateDefinitionBlocks: Always
+SpaceAfterCStyleCast: true
+PenaltyReturnTypeOnItsOwnLine: 240
+WhitespaceSensitiveMacros:
+  - EMBED_FILE
+ForEachMacros:
+  - GG_LIST_FOREACH
+  - GG_MAP_FOREACH
+  - GG_BUF_LIST_FOREACH
+Macros:
+  - NODISCARD=[[nodiscard]]
+  - GGL_EXPORT=[[gnu::visibility(protected)]]
+  - VISIBILITY(x)=[[gnu::visibility(x)]]
+  - FORMAT(x,y,z)=[[gnu::format(x,y,z)]]
+  - UNUSED=[[gnu::unused]]
+  - COUNTED_BY(x)=[[gnu::counted_by(x)]]
+  - DESIGNATED_INIT=[[gnu::designated_init]]
+  - ALLOC_SIZE(x)=[[gnu::alloc_size(x)]]
+  - ALLOC_ALIGN(x)=[[gnu::alloc_align(x)]]
+  - NONNULL(x)=[[gnu::nonnull(x)]]
+  - NONNULL_IF_NONZERO(x,y)=[[gnu::nonnull_if_nonzero(x,y)]]
+  - NULL_TERMINATED_STRING_ARG(x)=[[gnu::null_terminated_string_arg(x)]]
+  - ACCESS(x,y)=[[gnu::access(x,y)]]
+  - COLD=[[gnu::cold]]
+  - CONST=[[gnu::const]]
+  - PURE=[[gnu::pure]]
+  - FLAG_ENUM=[[gnu::flag_enum]]
+  - ENUM_EXTENSIBILITY(x)=[[gnu::enum_extensibility(x)]]

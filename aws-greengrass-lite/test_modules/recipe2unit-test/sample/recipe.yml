@@ -1,0 +1,46 @@
+---
+RecipeFormatVersion: "2020-01-25"
+ComponentName: com.example.HelloWorld
+ComponentVersion: "1.0.0"
+ComponentDescription: My first AWS IoT Greengrass component.
+ComponentPublisher: Amazon
+ComponentDependencies:
+  aws.greengrass.TokenExchangeService:
+    VersionRequirement: ">=2.0.0 <3.0.0"
+    DependencyType: "HARD"
+  AcewaveMw:
+    VersionRequirement: ">=1.0.0 <2.0.0"
+    DependencyType: "HARD"
+ComponentConfiguration:
+  DefaultConfiguration:
+    Message: world
+Manifests:
+  - Platform:
+      os: linux
+    Lifecycle:
+      setEnv:
+        ID: "00000000-0000-0000-0000-000000000000"
+        ENV: "pre-qa"
+        URL: "https://test-api.us-east-1.amazonaws.com/Prod"
+        Instance: "S"
+      INSTALL:
+        RequiresPrivilege: true
+        script: |
+          PY run this
+          py test this as well
+        Timeout: 120
+      run:
+        RequiresPrivilege: false
+        script: |
+          python3 -u hello_world.py
+          python3 -c hello_world2.py
+        Timeout: 120
+      startUp: python3 -u hello_world_startup.py
+  - Platform:
+      os: windows
+    Lifecycle:
+      install: |
+        py run this
+        py test this as well
+      run: |
+        py -3 -u hello_world.py

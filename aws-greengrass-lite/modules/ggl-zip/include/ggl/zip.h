@@ -1,0 +1,20 @@
+// aws-greengrass-lite - AWS IoT Greengrass runtime for constrained devices
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
+
+#ifndef GGL_ZIP_H
+#define GGL_ZIP_H
+
+//! Zip file functionality
+
+#include <gg/error.h>
+#include <gg/types.h>
+#include <sys/types.h>
+
+/// Unarchive all entries from the zip file in a directory to the destination
+/// directory. All created, uncompressed files use the given mode.
+GgError ggl_zip_unarchive(
+    int source_dest_dir_fd, GgBuffer zip_path, int dest_dir_fd, mode_t mode
+);
+
+#endif

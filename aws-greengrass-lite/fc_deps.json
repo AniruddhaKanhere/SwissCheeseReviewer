@@ -1,0 +1,17 @@
+{
+  "core_mqtt": {
+    "url": "https://github.com/FreeRTOS/coreMQTT.git",
+    "rev": "8f129a1eddfe92f7196da3253acc292c4331e285",
+    "hash": "sha256-ZMhIBIfymcI8b6CERcsnrXwv6a+LsEgdmZdhn7TMIZE="
+  },
+  "aws_sigv4": {
+    "url": "https://github.com/aws/SigV4-for-AWS-IoT-embedded-sdk.git",
+    "rev": "f0409ced6c2c9430f0e972019b7e8f20bbf58f4e",
+    "hash": "sha256-6is4ymM/Ct9JntgpFHF4Vlv5+GUwy0HZvEiEV+ALJkw="
+  },
+  "gg_sdk": {
+    "url": "https://github.com/aws-greengrass/aws-greengrass-component-sdk.git",
+    "rev": "1d8b8280eb14b65ae1e92d2b708a9754fc62d7ab",
+    "hash": "sha256-cjGM6XV7R+p/e8mu2IJQqhuCIPBDylhfhknz4jJUGqg="
+  }
+}

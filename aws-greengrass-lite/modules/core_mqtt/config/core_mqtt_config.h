@@ -1,0 +1,37 @@
+/* aws-greengrass-lite - AWS IoT Greengrass runtime for constrained devices
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+#ifndef CORE_MQTT_CONFIG_H
+#define CORE_MQTT_CONFIG_H
+
+#include <pthread.h> // IWYU pragma: keep
+#include <sys/types.h>
+
+struct MQTTContext;
+
+pthread_mutex_t *coremqtt_get_send_mtx(const struct MQTTContext *ctx);
+pthread_mutex_t *coremqtt_get_state_mtx(const struct MQTTContext *ctx);
+
+#define MQTT_RECV_POLLING_TIMEOUT_MS (1000)
+
+#ifdef CORE_MQTT_SOURCE
+
+#include <gg/log.h>
+
+#define GGL_MQTT_LOGUNPACK(...) __VA_ARGS__
+
+#define LogDebug(body) GG_LOGD(GGL_MQTT_LOGUNPACK body)
+#define LogInfo(body) GG_LOGI(GGL_MQTT_LOGUNPACK body)
+#define LogWarn(body) GG_LOGW(GGL_MQTT_LOGUNPACK body)
+#define LogError(body) GG_LOGE(GGL_MQTT_LOGUNPACK body)
+
+#define MQTT_PRE_STATE_UPDATE_HOOK(pContext) \
+    pthread_mutex_lock(coremqtt_get_state_mtx(pContext));
+#define MQTT_POST_STATE_UPDATE_HOOK(pContext) \
+    pthread_mutex_unlock(coremqtt_get_state_mtx(pContext));
+
+#endif
+
+#endif

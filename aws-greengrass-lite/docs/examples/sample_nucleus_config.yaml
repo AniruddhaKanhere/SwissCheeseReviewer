@@ -1,0 +1,29 @@
+---
+system:
+  privateKeyPath: "/var/lib/greengrass/device.key"
+  certificateFilePath: "/var/lib/greengrass/device.pem"
+  rootCaPath: "/var/lib/greengrass/AmazonRootCA1.pem"
+  rootPath: "/var/lib/greengrass"
+  thingName: "ExampleGGDevice"
+services:
+  aws.greengrass.NucleusLite:
+    componentType: "NUCLEUS"
+    configuration:
+      awsRegion: "us-west-2"
+      iotCredEndpoint: "<CONFIGURE_THIS>"
+      iotDataEndpoint: "<CONFIGURE_THIS>"
+      iotRoleAlias: "GreengrassV2TokenExchangeRoleAlias"
+      runWithDefault:
+        posixUser: "gg_component:gg_component"
+      greengrassDataPlanePort: "8443"
+      platformOverride: {}
+      fleetStatus:
+        periodicStatusPublishIntervalSeconds: 86400
+  # aws.greengrass.fleet_provisioning:
+  #   configuration:
+  #     iotDataEndpoint: "<CONFIGURE_THIS>"
+  #     iotCredEndpoint: "<CONFIGURE_THIS>"
+  #     claimKeyPath: "<CONFIGURE_THIS>"
+  #     claimCertPath: "<CONFIGURE_THIS>"
+  #     templateName: "<CONFIGURE_THIS>"
+  #     templateParams: "<CONFIGURE_THIS>"

@@ -1,0 +1,26 @@
+// aws-greengrass-lite - AWS IoT Greengrass runtime for constrained devices
+// Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// SPDX-License-Identifier: Apache-2.0
+
+#ifndef FLEET_PROVISIONING_H
+#define FLEET_PROVISIONING_H
+
+#include <gg/error.h>
+
+typedef struct {
+    char *claim_cert;
+    char *claim_key;
+    char *template_name;
+    char *template_params_json;
+    char *endpoint;
+    char *root_ca_path;
+    char *iotcored_path;
+    char *csr_common_name;
+    char *output_dir;
+    char *csr_path;
+    char *cert_path;
+    char *key_path;
+} FleetProvArgs;
+
+GgError run_fleet_prov(FleetProvArgs *args);
+#endif
